@@ -9,7 +9,10 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
     <title>Pixel Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap</title>
+<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />-->
     <!-- Bootstrap Core CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <link href="<?= base_url() ?>asset/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="<?= base_url() ?>asset/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
@@ -19,6 +22,7 @@
     <link href="<?= base_url() ?>asset/css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="<?= base_url() ?>asset/css/colors/blue-dark.css" id="theme" rel="stylesheet">
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="<?= base_url() ?>asset/plugins/ckeditor/ckeditor.js"></script>
@@ -27,6 +31,26 @@
 
 <body>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#btn').click(function(){
+
+                $.ajax({
+                    url: "http://localhost/Codelginter/CodeIgnitor-Website-Projects/Website/api/category",
+                    method  : 'get',
+                    beforeSend: function( xhr ) {
+                        xhr.addRequestHeader( "x-api-key","12345" );
+
+                    }
+                })
+                    .done(function( data ) {
+                        if ( console && console.log ) {
+                            alert(data);
+                        }
+                });
+            });
+        });
+    </script>
     <!-- Preloader -->
     <div class="preloader">
         <div class="cssload-speeding-wheel"></div>
@@ -49,6 +73,7 @@
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
                 <ul class="nav" id="side-menu">
                     <li style="padding: 10px 0 0;">
+
                         <a href="<?= base_url() ?>index.php/admincontroller/index" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
                     </li>
                     <li>
@@ -73,7 +98,6 @@
                     </div>
                 </div>
                 <div class="row">
-
                         <div class="white-box">
                             <form class="form-horizontal form-material" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
@@ -81,11 +105,7 @@
                                     <div class="col-md-12">
                                         <input type="text" placeholder="Product name" class="form-control form-control-line"> </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="example-email" class="col-md-12">Price</label>
-                                    <div class="col-md-12">
-                                        <input type="number" placeholder="Price in (R) per 1 kg" class="form-control form-control-line" name="example-email" id="example-email"> </div>
-                                </div>
+
                                 <div class="form-group">
                                     <label class="col-md-12">Address</label>
                                     <div class="col-md-12">
@@ -122,19 +142,21 @@
                                 <div class="form-group">
                                     <label class="col-sm-12">Choose other Images</label>
                                     <div class="col-md-4 mb-3">
-                                        <input type="file"  multiple="">
-                                        <input type="file"  multiple="">
-                                        <input type="file"  multiple="">
-                                        <input type="file"  multiple="">
-                                        <input type="file"  multiple="">
+                                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                        <input id="input-b1" name="input-b1" type="file" class="file">
+                                        <input id="input-b1" name="input-b1" type="file" class="file">
+                                        <input id="input-b1" name="input-b1" type="file" class="file">
+                                        <input id="input-b1" name="input-b1" type="file" class="file">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <button class="btn btn-primary">Upload</button>
+
                                     </div>
                                 </div>
                             </form>
+                            <button id="btn">click</button>
                         </div>
 
                 </div>
@@ -161,3 +183,4 @@
 </body>
 
 </html>
+

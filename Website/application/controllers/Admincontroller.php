@@ -18,14 +18,14 @@ class AdminController extends CI_Controller {
     }
 
     public function index(){
-		$this->load->view('admin/index');
+		$this->load->view('cms/cms');
 	}
 
 	public function add(){
-	    $this->load->view('admin/addproduct');
+	    $this->load->view('cms/insert');
     }
 
     public function show(){
-	    $this->load->view('admin/showproduct');
+	    $this->load->view('cms/show');
     }
 }
