@@ -22,10 +22,10 @@ class AdminController extends CI_Controller {
 	}
 
 	public function add(){
-	    $this->load->view('cms/insert');
+	    $this->load->view('cms/insert_post');
     }
 
     public function show(){
-	    $this->load->view('cms/show');
+	    $this->load->view('cms/show_post');
     }
 }

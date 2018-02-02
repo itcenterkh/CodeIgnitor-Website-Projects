@@ -12,7 +12,7 @@ class Post_model extends MY_Model{
         return $lastid;
     }
     public function showpost(){
-        $query = $this->db->query("select p.* , pro.pname_en , pro.pname_kh ,  c.name as 'categories_name' from post p inner join product pro on p.pid = pro.id 
+        $query = $this->db->query("select p.* , pro.pname_en , pro.pname_kh ,  c.name as 'cate_name_en' , c.name_kh as 'cate_name_kh' from post p inner join product pro on p.pid = pro.id 
                                   inner join categories c on c.id = p.cid where p.status = 1 order by p.id desc limit 1000");
         return $query->result_array() ;
     }

@@ -1,21 +1,27 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow- Methods: POST, GET, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: X-Requested-With, content-type, X-Token, x-token , x-api-key');
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 require APPPATH . 'libraries/REST_Controller.php';
 
-class Api extends REST_Controller
-{
+class Api extends REST_Controller{
 
     public function __construct($config = 'rest')
     {
+
         parent::__construct($config);
         $this->load->helper(array('form', 'url'));
         $this->load->model('categories_model', 'categories');
         $this->load->model('product_model', 'product');
         $this->load->model('image_model', 'image');
         $this->load->model('post_model', 'post');
-    }
 
+    }
+    public function index_options(){ $this->response(null, REST_Controller::HTTP_OK); }
     public function test_get($id)
     {
 //        $this->response("hello");
@@ -39,7 +45,8 @@ class Api extends REST_Controller
     public function category_post()
     {
         $this->categories->insert(array(
-            'name' => $this->input->post('cate_name')
+            'name' => $this->input->post('cate_name') ,
+            'name_kh' => $this->input->post('cate_name_kh')
         ));
 
         $this->response(array(
