@@ -96,6 +96,21 @@ class Api extends REST_Controller{
             ));
         }
     }
+    public function productbyid_get($id){
+
+        $data = $this->product->getproductbyid($id);
+        if ($data != null){
+            return $this->response(array(
+                'status'    => true ,
+                'data'      => $data
+            ));
+        } else {
+            return $this->response(array(
+                'status'    => false ,
+                'msg'       => 'dont  have record'
+            ));
+        }
+    }
 
     public function product_delete($id)
     {

@@ -13,5 +13,8 @@ class Product_model extends MY_Model{
         $query = $this->db->query("select p.* , c.name as 'categories_name' from product p inner join categories c on p.categories_id = c.id ");
         return $query->result_array() ;
     }
-
+    public function getproductbyid($id){
+        $query  = $this->db->query("select * from product p where p.categories_id = $id");
+        return $query->result_array() ;
+    }
 }
