@@ -17,7 +17,7 @@ class Post_model extends MY_Model{
         return $query->result_array() ;
     }
     public function showpostbyid($id){
-        $query = $this->db->query("select p.* , pro.* , c.name as 'categories_name' from post p inner join product pro on p.pid = pro.id 
+        $query = $this->db->query("select p.*, pro.id as productid , pro.pname_en , pro.pname_kh , c.name as 'cname_kh' , c.name_kh from post p inner join product pro on p.pid = pro.id 
                                   inner join categories c on c.id = p.cid  where p.id = $id  and p.`status` = 1 order by p.id desc limit 1000");
         return $query->result_array() ;
     }

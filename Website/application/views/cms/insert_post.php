@@ -34,30 +34,30 @@
 
                     <!-- Description -->
 						<div class="form-group">
-                            <textarea name="description" rows="16" style="width:100% " placeholder="Add Description here"></textarea>
+                            <textarea name="description" id="description" rows="16" style="width:100% " placeholder="Add Description here"></textarea>
 						</div>
 
 						<!-- address -->
 						<div class="form-group">
-								<input type="text" class="form-control" name="address" placeholder="Address(st.271 sangkat : Boeung Tompun Khan : Mean Chey )" >
+								<input type="text" id="address" class="form-control" name="address" placeholder="Address(st.271 sangkat : Boeung Tompun Khan : Mean Chey )" >
 						</div>
 
 						<!-- Price -->
 						<div class="form-group">
 
-								<input type="text" class="form-control" name="price" placeholder="Price (1kg 2$)">
+								<input type="text" id="price" class="form-control" name="price" placeholder="Price (1kg 2$)">
 						</div>
 
 						<!-- phone Number -->
 						<div class="form-group">
 
-								<input type="text" class="form-control" name="phone" placeholder="Phone Number (012 985988 , 011859475)">
+								<input type="text" id="phone" class="form-control" name="phone" placeholder="Phone Number (012 985988 , 011859475)">
 						</div>
 
                     <!-- Image thumbnail  -->
                     <div class="form-group">
                         <p>Thumbnail</p>
-                        <input type="file" class="form-control" name="thumbnail" >
+                        <input type="file" class="form-control" name="thumbnail" required>
                     </div>
 <!--                    Other Image-->
                     <div class="form-group">
@@ -130,6 +130,8 @@
 
 
 
+
+
         $("form#formdata").submit(function(e){
 
             e.preventDefault() ;
@@ -143,7 +145,14 @@
                 type : 'POST' ,
                 data : formData ,
                 success : function(data){
-                    alert(data) ;
+                    alert("The Data has been upload") ;
+                    $("#cid").text("");
+                    $("#pid").text("");
+                    $("#description").val("");
+                    $("#address").val("");
+                    $("#price").val("") ;
+                    $("#phone").val("");
+
                 } ,
                 cache: false,
                 contentType :false ,

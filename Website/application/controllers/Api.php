@@ -70,7 +70,14 @@ class Api extends REST_Controller{
             ));
         }
     }
+    public function categories_delete($id){
+        $this->categories->update($id , array('status' => 0));
 
+        return $this->response(array(
+            'status' => true ,
+            'msg' => 'Data has been delete'
+        ));
+    }
 
     // product
 //    Insert Product
@@ -86,13 +93,15 @@ class Api extends REST_Controller{
                 'msg'   => 'insert Successfully'
             ));
     }
+
+//    Get all product
     public function product_get(){
         $data = $this->product->showproduct();
 
         if ($data != null){
             return $this->response(array(
                 'status' => true ,
-                'msg'   => $data
+                'data'   => $data
             ));
         }
     }
@@ -114,8 +123,12 @@ class Api extends REST_Controller{
 
     public function product_delete($id)
     {
-        $this->db->where('id' , $id);
-        $this->db->update('product');
+        $this->product->update($id, array('status' => 0));
+
+        return $this->response(array(
+            'status' => true,
+            'msg' => 'Data has been delete'
+        ));
     }
     // ========================================//end product //========================================
     // post
@@ -154,15 +167,15 @@ class Api extends REST_Controller{
     // update post
     public function postupdate_post($id){
 
+
         $thumbnail = null;
         $config['upload_path']          = './asset/img/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
+        $config['max_size']             = 5000;
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
 
         $this->load->library('upload', $config);
-
 
         $post = array(
             'pid'   => $this->input->post('pid'),
@@ -178,10 +191,11 @@ class Api extends REST_Controller{
         {   $thumbnail  = array('upload_data' => $this->upload->data());
             $post['img_thumbnail']=  $thumbnail['upload_data']['file_name'];
         }
-        $this->post->update($id ,$post);
-
-        $images = array() ;
-
+        $this->db->where('id' , $id);
+        $this->db->update('post' ,$post);
+        //declare empty array()
+        $images = array();
+//        get image from input file
         if ($this->upload->do_upload('img1')){
             $img = array('upload_data' => $this->upload->data()) ;
             $images['img1'] = $img['upload_data']['file_name'];
@@ -202,12 +216,22 @@ class Api extends REST_Controller{
             $img = array('upload_data' => $this->upload->data()) ;
             $images['img5'] = $img['upload_data']['file_name'];
         }
-        $this->db->where('pid', $id);
-        $this->db->update('image', $images);
-
+//  if image table have post_id it update else insert
+        if ($images!= null)
+        {
+            $getimgid = $this->image->getimagebypostid($id);
+            if ($getimgid != null){
+                $this->db->where('pid', $id);
+                $this->db->update('image', $images);
+            }else {
+                $images['pid'] = $id ;
+                $this->db->insert('image' , $images);
+            }
+        }
 
         $product = $this->post->showpostbyid($id);
         $image = $this->image->getimagebypostid($id);
+
         if ($product != null) {
             $this->response(array(
                 'status' => true,
@@ -231,7 +255,7 @@ class Api extends REST_Controller{
         $dataimg = null ;
         $config['upload_path'] = './asset/img/';
         $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 100;
+        $config['max_size'] = 5000;
         $config['max_width'] = 1024;
         $config['max_height'] = 768;
 
@@ -251,6 +275,7 @@ class Api extends REST_Controller{
             'post_date' => date('y-m-d')
         ));
         $lastid = $this->post->getlastid();
+        $img1 =null ; $img2 = null ; $img3 =null ; $img4 = null ; $img5 = null ;
         if ($this->upload->do_upload('img1')) {
             $img1 = array('img1' => $this->upload->data());
         }
@@ -266,15 +291,21 @@ class Api extends REST_Controller{
         if ($this->upload->do_upload('img5')) {
             $img5 = array('img5' => $this->upload->data());
         }
-        $this->image->insert(array(
-            'pid' => $lastid,
-            'img1' => $img1['img1']['file_name'],
-            'img2' => $img2['img2']['file_name'],
-            'img3' => $img3['img3']['file_name'],
-            'img4' => $img4['img4']['file_name'],
-            'img5' => $img5['img5']['file_name']
 
-        ));
+        if ($img1 ==null and $img2 == null and $img3 == null and $img4 == null and $img5== null){
+
+        }else{
+            $this->image->insert(array(
+                'pid' => $lastid,
+                'img1' => $img1['img1']['file_name'],
+                'img2' => $img2['img2']['file_name'],
+                'img3' => $img3['img3']['file_name'],
+                'img4' => $img4['img4']['file_name'],
+                'img5' => $img5['img5']['file_name']
+
+            ));
+        }
+
 
         if ($postdata != null){
             return $this->response(array(
@@ -286,7 +317,6 @@ class Api extends REST_Controller{
     }
 
     // ======================= update product ======================================
-    // update product
     public function post_delete($id){
         $this->post->update($id , array('status' => 0));
 

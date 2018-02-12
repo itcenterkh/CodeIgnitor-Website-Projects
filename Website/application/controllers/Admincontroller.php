@@ -18,14 +18,25 @@ class AdminController extends CI_Controller {
     }
 
     public function index(){
-		$this->load->view('cms/cms');
+		$this->load->view('admin_cms/show_post');
 	}
 
 	public function add(){
-	    $this->load->view('cms/insert_post');
+	    $this->load->view('admin_cms/insert_post');
     }
 
     public function show(){
-	    $this->load->view('cms/show_post');
+	    $this->load->view('admin_cms/show_post');
+    }
+    public function update($id){
+        $data['id'] = $id;
+        $this->load->view('admin_cms/update_post' ,$data , False);
+
+    }
+    public function addProduct(){
+        $this->load->view('admin_cms/insert_product');
+    }
+    public function addCategories(){
+        $this->load->view('admin_cms/insert_categories');
     }
 }

@@ -10,7 +10,7 @@ class Product_model extends MY_Model{
     public $has_many = array('image' => array('image' => 'pid'));
 
     public function showproduct(){
-        $query = $this->db->query("select p.* , c.name as 'categories_name' from product p inner join categories c on p.categories_id = c.id ");
+        $query = $this->db->query("select p.* , c.name as 'categories_name' , c.name_kh from product p inner join categories c on p.categories_id = c.id where p.status =1  order by id DESC ");
         return $query->result_array() ;
     }
     public function getproductbyid($id){
