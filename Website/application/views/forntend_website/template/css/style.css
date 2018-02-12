@@ -1,0 +1,143 @@
+body{
+
+}
+.font p{
+    font-family: Khmer OS;
+    font-size: 17px;
+    line-height: 30px;
+}
+.container-fluid{
+    padding: 0px;
+    margin: 0px;
+  	margin-left: 0px;
+  	margin-right: 0px;
+}
+    /*=============Header================*/
+.header{
+	width: 100%;
+	height: auto;
+}
+.image1 img{
+	width: 120px;
+	height: 100px;
+	float: left;
+}
+.navbar-inverse{
+	border:none;
+	border-radius: 0px;
+	background-color: MediumSeaGreen ;
+}
+.navbar .active > a, .navbar .active > a:hover{
+  background-color: green !important;
+}
+.menu li a:hover{
+  background-color: green !important;
+}
+.linehead{
+    width: 100%;
+    height: 50px;
+    background-color: #4EA755;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.linehead h3{
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+}
+    /*==============Meun fix===============*/
+.topmain{
+    width: 100%;
+    float: left;
+}
+.fixed{
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+    /*==============End fix===============*/
+
+    /*=============line================*/
+
+.divider{
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+   }
+.divider1{
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+   }
+.line{
+    background-color: MediumSeaGreen;
+    height: 2px;
+    margin-top: -1px;
+    position: absolute;
+    top: 63%;
+    width: 100%;
+    z-index: 1;
+}
+.line1{
+    background-color: MediumSeaGreen;
+    height: 2px;
+    margin-top: -1px;
+    position: absolute;
+    top: 63%;
+    width: 100%;
+    z-index: 1;
+    margin-left: 15px;
+}
+.divider h2{
+    background-color: rgb(255, 255, 255);
+    color: rgb(102, 102, 102);
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+.divider h3{
+    background-color: rgb(255, 255, 255);
+    color: rgb(102, 102, 102);
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    margin-top: 34px;
+   }
+
+
+    /*============= End line================*/
+    /*=============Contact Us================*/
+
+.contain{
+    width: 100%;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 #B5AAAE;
+    margin-top:10px;
+    margin-bottom: 20px;
+}
+
+.description_price h3 {
+    border:2px solid red;
+    position: absolute;
+    padding: 12px;
+    border-radius: 5px;
+    float: left;
+}
+.description_price {
+      width: 100%;
+      height: 100px;
+      padding-bottom: 30px;
+      margin: 0px;
+}
+
