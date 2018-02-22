@@ -39,4 +39,8 @@ class AdminController extends CI_Controller {
     public function addCategories(){
         $this->load->view('admin_cms/insert_categories');
     }
+
+    public function showUser(){
+        $this->load->view('admin_cms/show_user');
+    }
 }

@@ -57,7 +57,6 @@
                                 <th>Categories KH</th>
                                 <th>Product EN</th>
                                 <th>Product KH</th>
-                                <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                             </thead>

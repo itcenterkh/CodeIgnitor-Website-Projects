@@ -24,13 +24,12 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Categories EN</th>
-                                <th>Categories KH</th>
-                                <th>Product EN</th>
-                                <th>Product KH</th>
+                                <th>Categories </th>
+                                <th>Product </th>
                                 <th>Address</th>
                                 <th>Phone Number</th>
                                 <th>Price</th>
+                                <th>Post Date</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -44,8 +43,6 @@
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
-
-
                 <!-- /.box -->
             </div>
             <!-- /.col -->

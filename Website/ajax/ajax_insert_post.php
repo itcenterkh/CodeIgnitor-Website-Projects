@@ -53,6 +53,10 @@
         $("form#formdata").submit(function(e){
 
             e.preventDefault() ;
+            for (instance in CKEDITOR.instances) {
+                CKEDITOR.instances.description.updateElement();
+            }
+
             var formData = new FormData(this) ;
             $.ajax({
 
@@ -63,13 +67,6 @@
                 type : 'POST' ,
                 data : formData ,
                 success : function(data){
-//                    alert("The Data has been upload") ;
-                    $("#cid").text("");
-                    $("#pid").text("");
-                    $("#description").val("");
-                    $("#address").val("");
-                    $("#price").val("") ;
-                    $("#phone").val("");
                     window.open("<?= base_url() ?>index.php/admincontroller/index" , '_self');
                 } ,
                 cache: false,
