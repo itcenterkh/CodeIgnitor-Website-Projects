@@ -19,7 +19,7 @@ class Api extends REST_Controller{
         $this->load->model('product_model', 'product');
         $this->load->model('image_model', 'image');
         $this->load->model('post_model', 'post');
-
+        $this->load->model('Ion_auth_model' , 'user');
     }
     public function index_options(){ $this->response(null, REST_Controller::HTTP_OK); }
     public function test_get($id)
@@ -174,6 +174,7 @@ class Api extends REST_Controller{
         $config['max_size']             = 5000;
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
+        $config['encrypt_name']         = TRUE ;
 
         $this->load->library('upload', $config);
 
@@ -255,10 +256,10 @@ class Api extends REST_Controller{
         $dataimg = null ;
         $config['upload_path'] = './asset/img/';
         $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 5000;
-        $config['max_width'] = 1024;
-        $config['max_height'] = 768;
-
+        $config['max_size']             = 5000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+        $config['encrypt_name']         = TRUE ;
         $this->load->library('upload', $config);
         if ($this->upload->do_upload('thumbnail')) {
             $dataimg = array('upload_data' => $this->upload->data());
@@ -318,6 +319,11 @@ class Api extends REST_Controller{
 
     // ======================= update product ======================================
     public function post_delete($id){
+
+//        return $this->response(array(
+//           'data' =>   $this->image->getimagebypostid($id)
+//        ));
+//        die();
         $this->post->update($id , array('status' => 0));
 
             return $this->response(array(
@@ -330,5 +336,13 @@ class Api extends REST_Controller{
     // Delete Product
 
 
+    // show user
+    public function user_get(){
+        $data = $this->user->showuser();
 
+        return $this->response(array(
+           'data' => $data
+        ));
+
+    }
 }

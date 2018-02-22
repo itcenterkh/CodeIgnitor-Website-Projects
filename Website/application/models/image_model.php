@@ -15,9 +15,9 @@ class Image_model extends MY_Model{
         $query = $this->db->query("select * from image where pid = $pid");
         return $query->result_array();
     }
-    public function deleteImage($id){
-        $query = $this->db->query("delete from image where pid = $id");
-    }
+//    public function deleteImage($id){
+//        $query = $this->db->query("delete from image where pid = $id");
+//    }
 
 
 }

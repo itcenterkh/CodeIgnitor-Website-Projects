@@ -80,8 +80,8 @@
                     value: pid,
                     text: data["post"][0]["pname_kh"]
                 }));
-
-                $("#description").val(data["post"][0]["description"]);
+                CKEDITOR.instances.description_detail.setData(data["post"][0]["description"]);
+//                $("#description").val(data["post"][0]["description"]);
                 $("#address").val(data["post"][0]["address"]);
                 $("#phone").val(data["post"][0]["phone"]);
                 $("#price").val(data["post"][0]["price"]);
@@ -98,25 +98,22 @@
         }
 // ==========================//=============================
 /// submit to data update to server
-        $("form#formdata").submit(function(e){
-
+        $("form#formupdate").submit(function(e){
             e.preventDefault() ;
+            for (instance in CKEDITOR.instances) {
+                CKEDITOR.instances.description_detail.updateElement();
+            }
+
             var formData = new FormData(this) ;
             $.ajax({
 
                 headers : {
                     "x-api-key" : "12345"
                 } ,
-                url : "<?= base_url()?>index.php/api/postupdate/"+post_id ,
+                url : "<?= base_url()?>/index.php/api/postupdate/"+post_id ,
                 type : 'POST' ,
                 data : formData ,
                 success : function(data){
-                    $("#cid").text("");
-                    $("#pid").text("");
-                    $("#description").val("");
-                    $("#address").val("");
-                    $("#price").val("") ;
-                    $("#phone").val("");
                     window.open("<?= base_url() ?>index.php/admincontroller/index" , '_self');
                 } ,
                 cache: false,

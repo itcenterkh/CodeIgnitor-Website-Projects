@@ -248,6 +248,11 @@ class Ion_auth_model extends CI_Model
 		$this->trigger_events('model_constructor');
 	}
 
+	// Show user
+        public function showuser(){
+            $query = $this->db->query("select * from users");
+            return $query->result_array() ;
+        }
 	/**
 	 * Hashes the password to be stored in the database.
 	 *

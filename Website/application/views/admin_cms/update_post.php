@@ -26,7 +26,7 @@
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
-                            <form role="form" method="post" action="" enctype="multipart/form-data" id="formdata">
+                            <form role="form" method="post" action="" enctype="multipart/form-data" id="formupdate">
                                 <div class="box-body">
                                     <div class="form-group">
 
@@ -45,7 +45,8 @@
 
                                     <!-- Description -->
                                     <div class="form-group">
-                                        <textarea id="description" name="description" rows="16" style="width:100% " placeholder="Add Description here"></textarea>
+                                        <label for="description">Description</label>
+                                        <textarea name="description" class="ckeditor" id="description_detail" rows="16" style="width:100% " placeholder="Add Description here"></textarea>
                                     </div>
 
                                     <!-- address -->

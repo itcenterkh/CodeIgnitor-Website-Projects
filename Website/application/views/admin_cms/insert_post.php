@@ -47,7 +47,7 @@
                                         <!-- Description -->
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea name="description" id="description" rows="16" style="width:100% " placeholder="Add Description here"></textarea>
+                                            <textarea name="description" class="ckeditor" id="description" rows="16" style="width:100% " placeholder="Add Description here"></textarea>
                                         </div>
 
                                         <!-- address -->
@@ -89,7 +89,7 @@
                                     <!-- /.box-body -->
 
                                     <div class="box-footer">
-                                        <button type="submit" name="submit" class="btn btn-success"​ id="save">Upload</button>
+                                        <button type="submit" name="submit" class="btn btn-success"​ id="save">Publish</button>
                                     </div>
                                 </form>
                             </div>

@@ -18,11 +18,12 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?=base_url()?>/asset/dist/css/skins/_all-skins.min.css">
 
-
+    <script type="text/javascript" src="<?=base_url()?>/asset/ckeditor/ckeditor.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <![endif]-->
 
     <!-- Google Font -->
@@ -93,11 +94,19 @@
             </ul>
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
+                    <a href="<?= base_url() ?>index.php/admincontroller/showUser">
+                        <i class="fa  fa-user-plus"></i> <span>User</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="sidebar-menu" data-widget="tree">
+                <li>
                     <a href="<?= base_url() ?>index.php/auth/logout">
                         <i class="fa  fa-sign-out"></i> <span>Logout</span>
                     </a>
                 </li>
             </ul>
+
         </section>
         <!-- /.sidebar -->
     </aside>
