@@ -13,6 +13,6 @@ class Categories_model extends MY_Model{
 
     public function get_all(){
         $query = $this->db->query("select * from categories where status = 1 order by id DESC");
-        return $query->result_array() ;
+        return $query->result_array();
     }
 }

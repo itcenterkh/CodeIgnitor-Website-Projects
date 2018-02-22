@@ -21,4 +21,24 @@ class Post_model extends MY_Model{
                                   inner join categories c on c.id = p.cid  where p.id = $id  and p.`status` = 1 order by p.id desc limit 1000");
         return $query->result_array() ;
     }
+
+    public function showByFruit(){
+        $query = $this->db->query("select pro.pname_kh , pro.pname_en ,  p.* from post p 
+                                    inner join product pro on p.pid = pro.id
+                                    where p.cid = 1 and p.`status` = 1 LIMIT 3 ");
+        return $query->result_array() ;
+    }
+    public function showByVegetable(){
+        $query = $this->db->query("select pro.pname_kh , pro.pname_en ,  p.* from post p 
+                                    inner join product pro on p.pid = pro.id
+                                    where p.cid = 2 and p.`status` = 1 LIMIT 3 ");
+        return $query->result_array() ;
+    }
+    public function showByCategories($id){
+        $query = $this->db->query("select pro.pname_kh , pro.pname_en ,  p.* from post p 
+                                    inner join product pro on p.pid = pro.id
+                                    where p.cid = $id and p.`status` = 1 LIMIT 3  ");
+        return $query->result_array() ;
+    }
+
 }
