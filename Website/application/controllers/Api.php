@@ -132,7 +132,32 @@ class Api extends REST_Controller{
     }
     // ========================================//end product //========================================
     // post
-    // show all product
+
+    // show by categories
+    // for main page in fron end
+        public function showPostByCategories_get($id){
+        $data = $this->post->showByCategories($id) ;
+        return $this->response(array(
+            'status' => true ,
+            'data'  => $data
+        ));
+    }
+
+    public function showFruit_get(){
+        $data = $this->post->showByFruit();
+        return $this->response(array(
+           'status' => true ,
+           'data'   => $data
+        ));
+    }
+    public function showVegetable_get(){
+        $data = $this->post->showByVegetable();
+        return $this->response(array(
+            'status'  => true ,
+            'data'  => $data
+        ));
+    }
+    // show all Post fro cms
     public function post_get(){
         $post = $this->post->showpost();
         if ($post != null){
@@ -181,6 +206,7 @@ class Api extends REST_Controller{
         $post = array(
             'pid'   => $this->input->post('pid'),
             'cid'   => $this->input->post('cid'),
+            'title' =>  $this->input->post('title'),
             'phone' => $this->input->post('phone'),
             'description'   => $this->input->post('description'),
             'address'    => $this->input->post('address'),
@@ -268,6 +294,7 @@ class Api extends REST_Controller{
         $postdata = $this->post->insert(array(
             'pid'   => $this->input->post('pid'),
             'cid'   => $this->input->post('cid'),
+            'title' => $this->input->post('title'),
             'phone' => $this->input->post('phone'),
             'description'   => $this->input->post('description'),
             'img_thumbnail' => $dataimg['upload_data']['file_name'],
