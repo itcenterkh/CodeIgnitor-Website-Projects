@@ -26,6 +26,7 @@
                                 <th>ID</th>
                                 <th>Categories </th>
                                 <th>Product </th>
+                                <th>Title</th>
                                 <th>Address</th>
                                 <th>Phone Number</th>
                                 <th>Price</th>

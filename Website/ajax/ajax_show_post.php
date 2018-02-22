@@ -21,6 +21,7 @@
                     post_data += "<td scope='row'>"+ data["data"][i]["id"]	+"</td>";
                     post_data += "<td scope='row'>"+ data["data"][i]["cate_name_kh"]	+"</td>";
                     post_data += "<td scope='row'>"+ data["data"][i]["pname_kh"]	+"</td>";
+                    post_data += "<td scope='row'>"+ data["data"][i]["title"]	+"</td>";
                     post_data += "<td scope='row'>"+ data["data"][i]["address"]	+"</td>";
                     post_data += "<td scope='row'>"+ data["data"][i]["phone"]	+"</td>";
                     post_data += "<td scope='row'>"+ data["data"][i]["price"]	+"</td>";

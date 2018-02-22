@@ -157,6 +157,13 @@ class Api extends REST_Controller{
             'data'  => $data
         ));
     }
+    public function showCereal_get(){
+        $data = $this->post->showByCereal();
+        return $this->response(array(
+            'status'  => true ,
+            'data'  => $data
+        ));
+    }
     // show all Post fro cms
     public function post_get(){
         $post = $this->post->showpost();

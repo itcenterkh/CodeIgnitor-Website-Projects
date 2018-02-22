@@ -25,15 +25,21 @@ class Post_model extends MY_Model{
     public function showByFruit(){
         $query = $this->db->query("select pro.pname_kh , pro.pname_en ,  p.* from post p 
                                     inner join product pro on p.pid = pro.id
-                                    where p.cid = 1 and p.`status` = 1 LIMIT 3 ");
+                                    where p.cid = 1 and p.`status` = 1 ORDER BY id desc LIMIT 3 ");
         return $query->result_array() ;
     }
     public function showByVegetable(){
         $query = $this->db->query("select pro.pname_kh , pro.pname_en ,  p.* from post p 
                                     inner join product pro on p.pid = pro.id
-                                    where p.cid = 2 and p.`status` = 1 LIMIT 3 ");
+                                    where p.cid = 2 and p.`status` = 1 ORDER BY id desc  LIMIT 3 ");
         return $query->result_array() ;
     }
+    public function showByCereal(){
+    $query = $this->db->query("select pro.pname_kh , pro.pname_en ,  p.* from post p 
+                                    inner join product pro on p.pid = pro.id
+                                    where p.cid = 6 and p.`status` = 1 ORDER BY id desc  LIMIT 3 ");
+    return $query->result_array() ;
+}
     public function showByCategories($id){
         $query = $this->db->query("select pro.pname_kh , pro.pname_en ,  p.* from post p 
                                     inner join product pro on p.pid = pro.id

@@ -42,7 +42,11 @@
                                             <select class="form-control" name="pid" id="select_product">
                                             </select>
                                         </div>
-
+                                        <!-- Title -->
+                                        <div class="form-group">
+                                            <label for="description">title</label>
+                                            <input type="text" id="title" class="form-control" name="title" placeholder="Title">
+                                        </div>
 
                                         <!-- Description -->
                                         <div class="form-group">
