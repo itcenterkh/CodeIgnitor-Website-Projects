@@ -25,7 +25,10 @@
                                     <div class="form-group">
                                         <label for="categories">Categories</label>
                                         <select class="form-control" id="categories" name="cateid">
-
+                                            <option value="1">ផ្លែឈើ</option>
+                                            <option value="2">បន្លែ</option>
+                                            <option value="3">គ្រាប់ធញ្ញជាតិ</option>
+                                            <option value="4">Other</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -53,7 +56,6 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Categories EN</th>
                                 <th>Categories KH</th>
                                 <th>Product EN</th>
                                 <th>Product KH</th>

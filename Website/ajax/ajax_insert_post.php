@@ -22,29 +22,29 @@
                 $('#select_product').append(product);
             });
         });
-        $.ajax({
-            type: "GET",
-            headers: {
-                "x-api-key" : "12345"
-            } ,
-            url: "<?= base_url() ?>/index.php/api/category" ,
-            dataType: 'json',
-
-        })
-            .done(function(data) {
-                var categories = '';
-                var i = 0 ;
-//                alert(JSON.stringify(data)) ;
-                $.each(data["data"] , function(key, values){
-                    categories += "<option value ="+ data["data"][i]["id"]+">" + data["data"][i]["name_kh"]+"</option>"
-                    i++ ;
-                }) ;
-                $('#select_categories').append(categories);
-            })
-            .fail(function() {
-                alert("error");
-
-            });
+//        $.ajax({
+//            type: "GET",
+//            headers: {
+//                "x-api-key" : "12345"
+//            } ,
+//            url: "<?//= base_url() ?>///index.php/api/category" ,
+//            dataType: 'json',
+//
+//        })
+//            .done(function(data) {
+//                var categories = '';
+//                var i = 0 ;
+////                alert(JSON.stringify(data)) ;
+//                $.each(data["data"] , function(key, values){
+//                    categories += "<option value ="+ data["data"][i]["id"]+">" + data["data"][i]["name_kh"]+"</option>"
+//                    i++ ;
+//                }) ;
+//                $('#select_categories').append(categories);
+//            })
+//            .fail(function() {
+//                alert("error");
+//
+//            });
 
 
 

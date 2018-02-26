@@ -85,13 +85,13 @@
                     </a>
                 </li>
             </ul>
-            <ul class="sidebar-menu" data-widget="tree">
-                <li>
-                    <a href="<?= base_url() ?>index.php/admincontroller/addCategories">
-                        <i class="fa fa-cart-plus"></i> <span>Categories</span>
-                    </a>
-                </li>
-            </ul>
+<!--            <ul class="sidebar-menu" data-widget="tree">-->
+<!--                <li>-->
+<!--                    <a href="--><?//= base_url() ?><!--index.php/admincontroller/addCategories">-->
+<!--                        <i class="fa fa-cart-plus"></i> <span>Categories</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
                     <a href="<?= base_url() ?>index.php/admincontroller/showUser">

@@ -34,6 +34,10 @@
                                             <label for="select_categories">Categories</label>
                                             <select class="form-control" name="cid" id="select_categories">
                                                 <option value="0">ជ្រើសរិសប្រភេទ</option>
+                                                <option value="1">ផ្លែឈើ</option>
+                                                <option value="2">បន្លែ</option>
+                                                <option value="3">គ្រាប់ធញ្ញជាតិ</option>
+                                                <option value="4">Other</option>
                                             </select>
                                         </div>
                                         <!--                    Product -->

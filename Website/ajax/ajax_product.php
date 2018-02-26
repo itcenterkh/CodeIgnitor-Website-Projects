@@ -1,29 +1,29 @@
 <script type="text/javascript">
     $(document).ready(function(){
-//    Get data to categories LISt
-        $.ajax({
-            type: "GET",
-            headers: {
-                "x-api-key" : "12345"
-            } ,
-            url: "<?= base_url() ?>/index.php/api/category" ,
-            dataType: 'json',
-
-        })
-            .done(function(data) {
-                var categories = '';
-                var i = 0 ;
-//                alert(JSON.stringify(data)) ;
-                $.each(data["data"] , function(key, values){
-                    categories += "<option value ="+ data["data"][i]["id"]+">" + data["data"][i]["name_kh"]+"</option>"
-                    i++ ;
-                }) ;
-                $('#categories').append(categories);
-            })
-            .fail(function() {
-                alert("error");
-
-            });
+////    Get data to categories LISt
+//        $.ajax({
+//            type: "GET",
+//            headers: {
+//                "x-api-key" : "12345"
+//            } ,
+//            url: "<?//= base_url() ?>///index.php/api/category" ,
+//            dataType: 'json',
+//
+//        })
+//            .done(function(data) {
+//                var categories = '';
+//                var i = 0 ;
+////                alert(JSON.stringify(data)) ;
+//                $.each(data["data"] , function(key, values){
+//                    categories += "<option value ="+ data["data"][i]["id"]+">" + data["data"][i]["name_kh"]+"</option>"
+//                    i++ ;
+//                }) ;
+//                $('#categories').append(categories);
+//            })
+//            .fail(function() {
+//                alert("error");
+//
+//            });
 
 //    get data to table
         $.ajax({
@@ -43,8 +43,15 @@
                     post_data += "<tr >" ;
                     id = data["data"][i]["id"] ;
                     post_data +=  "<td scope='row'>"+ data["data"][i]["id"]	+"</td>";
-                    post_data += "<td scope='row'>"+ data["data"][i]["categories_name"]	+"</td>";
-                    post_data += "<td scope='row'>"+ data["data"][i]["name_kh"]	+"</td>";
+                    if(data["data"][i]["categories_id"] == 1 ){
+                        post_data += "<td scope='row'>ផ្លែឈើ</td>";
+                    }else if (data["data"][i]["categories_id"] == 2 ){
+                        post_data += "<td scope='row'>បន្លែ</td>";
+                    }else if(data["data"][i]["categories_id"] == 3 ){
+                        post_data += "<td scope='row'>គ្រប់ធញ្ញជាតិ</td>";
+                    }else{
+                        post_data += "<td scope='row'>Other</td>";
+                    }
                     post_data += "<td scope='row'>"+ data["data"][i]["pname_en"]	+"</td>";
                     post_data += "<td scope='row'>"+ data["data"][i]["pname_kh"]	+"</td>";
 //                post_data += "<td scope='row'>"+ "<button type='submit' name='btnEdit' class='btn btn-success'><a href= " + "<?//= base_url() ?>//index.php/admincontroller/update/"+id+">Update</a></button>"+"</td>";

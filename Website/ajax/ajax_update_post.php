@@ -2,35 +2,36 @@
     $(document).ready(function(){
         var post_id = "<?php echo $id?>";
         var cate_id;
+        successCallBack();
 
-        // show categories
-        $.ajax({
-            type: "GET",
-            headers: {
-                "x-api-key" : "12345"
-            } ,
-            url: "<?= base_url() ?>/index.php/api/category" ,
-            dataType: 'json',
-
-        })
-            .done(function(data){
-                var categories = '';
-                var i = 0 ;
-//                alert(JSON.stringify(data)) ;
-                $.each(data["data"] , function(key, values){
-                    categories += "<option value ="+ data["data"][i]["id"]+">" + data["data"][i]["name_kh"]+"</option>"
-                    i++ ;
-                }) ;
-                $('#select_categories').append(categories);
-
-                successCallBack();
-
-
-            })
-            .fail(function() {
-                alert("error");
-
-            });
+//        // show categories
+//        $.ajax({
+//            type: "GET",
+//            headers: {
+//                "x-api-key" : "12345"
+//            } ,
+//            url: "<?//= base_url() ?>///index.php/api/category" ,
+//            dataType: 'json',
+//
+//        })
+//            .done(function(data){
+//                var categories = '';
+//                var i = 0 ;
+////                alert(JSON.stringify(data)) ;
+//                $.each(data["data"] , function(key, values){
+//                    categories += "<option value ="+ data["data"][i]["id"]+">" + data["data"][i]["name_kh"]+"</option>"
+//                    i++ ;
+//                }) ;
+//                $('#select_categories').append(categories);
+//
+//                successCallBack();
+//
+//
+//            })
+//            .fail(function() {
+//                alert("error");
+//
+//            });
 
         //================================//==========================
 //        show product by categories id
@@ -82,6 +83,7 @@
                 }));
                 CKEDITOR.instances.description_detail.setData(data["post"][0]["description"]);
 //                $("#description").val(data["post"][0]["description"]);
+                $("#title").val(data["post"][0]["title"]);
                 $("#address").val(data["post"][0]["address"]);
                 $("#phone").val(data["post"][0]["phone"]);
                 $("#price").val(data["post"][0]["price"]);

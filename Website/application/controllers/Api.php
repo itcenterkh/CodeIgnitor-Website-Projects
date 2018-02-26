@@ -201,7 +201,7 @@ class Api extends REST_Controller{
 
 
         $thumbnail = null;
-        $config['upload_path']          = './asset/img/';
+        $config['upload_path']          = './asset/img/post_img';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 5000;
         $config['max_width']            = 1024;
@@ -287,7 +287,7 @@ class Api extends REST_Controller{
     // insert
     public function post_post(){
         $dataimg = null ;
-        $config['upload_path'] = './asset/img/';
+        $config['upload_path'] = './asset/img/post_img';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']             = 5000;
         $config['max_width']            = 1024;
